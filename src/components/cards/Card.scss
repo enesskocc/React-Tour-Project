@@ -1,0 +1,49 @@
+@import "../../scss/variables";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .cards {
+    background-color: $navbackcolor;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden; // p'i gizli yapiyor
+    &:hover .card-over {
+      transform: translateY(0); // Gizlenen p'nin yukariya dogru cikmasini sagliyor
+    }
+  }
+
+  h1{
+    color: $backcolor;
+    font-size: 3rem;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover; // resmin daha net bir sekilde sigmasini sagliyor
+
+    &:hover {
+      filter: grayscale(100%); //Resmin uerine geldigi zaman grilestirme yapiyor
+    }
+  }
+  .card-over {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    padding: 1rem;
+    transform: translateY(100%); // gizlene p'nin asagida beklemsini sagliyor
+    transition: transform 0.7s ease-in-out; // P'nin cikis hizi
+    z-index: 1; // P'nin resmin önünde cikmasini sagliyor
+    
+  }
+}
